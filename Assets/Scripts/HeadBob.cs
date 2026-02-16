@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class HeadBob : MonoBehaviour
 {
+    // TO-DO: Understand fully how lerp and sine function and how they affect linear velocity.
+
     [Header("Settings")]
     public float walkBobSpeed = 14f;
     public float bobAmount = 0.05f;
@@ -18,24 +20,24 @@ public class HeadBob : MonoBehaviour
 
     void Update()
     {
-        // 1. Check if the player is actually moving on the ground
+        // Check if the player is actually moving on the ground
         // We check the Rigidbody velocity to see if they are walking
         float moveSpeed = new Vector3(playerMovement.GetComponent<Rigidbody>().linearVelocity.x, 0, playerMovement.GetComponent<Rigidbody>().linearVelocity.z).magnitude;
 
         if (moveSpeed > 0.1f)
         {
-            // 2. The player is moving! Spin the "Ferris Wheel"
+            // The player is moving
             timer += Time.deltaTime * walkBobSpeed;
 
-            // 3. Calculate the new Y position using Sine
+            // Calculate the new Y position using Sine
             float newY = defaultYPos + Mathf.Sin(timer) * bobAmount;
 
-            // 4. Apply it to the camera
+            // Apply it to the camera
             transform.localPosition = new Vector3(transform.localPosition.x, newY, transform.localPosition.z);
         }
         else
         {
-            // 5. Player stopped? Smoothly reset the camera to the middle
+            // 5. Player stopped, smoothly reset the camera to the middle
             timer = 0;
             transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, defaultYPos, Time.deltaTime * 10f), transform.localPosition.z);
         }
