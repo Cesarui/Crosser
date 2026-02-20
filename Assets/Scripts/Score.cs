@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
+    // Score multiplier
     public float multiplier = 1.5f;
     public Transform player;
     public TextMeshProUGUI scoreText;
