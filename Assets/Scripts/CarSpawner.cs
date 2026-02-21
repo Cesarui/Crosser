@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CarSpawner : MonoBehaviour
 {
-    public GameObject objectToSpawn;
+    public GameObject[] vehiclePrefabs;
 
     float startTime;
 
@@ -13,9 +13,11 @@ public class CarSpawner : MonoBehaviour
     [Header("Timer Settings")]
     public float cooldown;
 
-    private void Spawn(GameObject obj)
+    private void Spawn(GameObject[] vehiclePrefabs)
     {
-        GameObject newCar = Instantiate(obj, transform.position, transform.rotation);
+        int index = Random.Range(0, vehiclePrefabs.Length);
+
+        GameObject newCar = Instantiate(vehiclePrefabs[index], transform.position, transform.rotation);
 
         DriveForward carScript = newCar.GetComponent<DriveForward>();
 
@@ -25,7 +27,7 @@ public class CarSpawner : MonoBehaviour
 
     private void Start()
     {
-        Spawn(objectToSpawn);
+        Spawn(vehiclePrefabs);
     }
 
     private void Update()
@@ -34,7 +36,7 @@ public class CarSpawner : MonoBehaviour
 
         if (startTime > cooldown)
         {
-            Spawn(objectToSpawn);
+            Spawn(vehiclePrefabs);
             startTime -= cooldown;
         }
     }
