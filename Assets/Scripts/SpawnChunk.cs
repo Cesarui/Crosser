@@ -6,6 +6,8 @@ public class SpawnChunk : MonoBehaviour
 
     public GameObject lastChunk;
 
+    public int minusAmount;
+
     public int chunkCounter = 0;
     public int maxChunkAmount = 12;
     private void OnTriggerEnter(Collider other)
@@ -13,8 +15,7 @@ public class SpawnChunk : MonoBehaviour
         if(other.tag == "Player" && chunkCounter < maxChunkAmount)
         {
             chunkCounter++;
-            Instantiate(chunk, new Vector3(chunk.transform.position.x - 45, 0, 0), chunk.transform.rotation);
-
+            Instantiate(chunk, new Vector3(chunk.transform.position.x - minusAmount, 0, 0), chunk.transform.rotation);
             lastChunk = chunk;
             Debug.Log(chunkCounter.ToString());
         }
