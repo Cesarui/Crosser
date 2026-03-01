@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarCollision : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class CarCollision : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Debug.Log("You Died");
-            other.gameObject.GetComponentInParent<Rigidbody>().AddForce(10000, 10000, 10000, ForceMode.Acceleration);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
