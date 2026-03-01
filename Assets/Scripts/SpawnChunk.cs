@@ -6,6 +6,8 @@ public class SpawnChunk : MonoBehaviour
 
     public GameObject lastChunk;
 
+    public GameObject finalChunk;
+
     public int minusAmount;
 
     public int chunkCounter = 0;
@@ -18,6 +20,10 @@ public class SpawnChunk : MonoBehaviour
             Instantiate(chunk, new Vector3(chunk.transform.position.x - minusAmount, 0, 0), chunk.transform.rotation);
             lastChunk = chunk;
             Debug.Log(chunkCounter.ToString());
+        }
+        else if(other.tag == "Player" && chunkCounter == 12)
+        {
+            Instantiate(finalChunk, new Vector3(-519, -0.58f, -14f), chunk.transform.rotation);
         }
     }
 
