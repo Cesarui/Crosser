@@ -121,6 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnChunk
   chunk: {fileID: 4477745078019654630}
   lastChunk: {fileID: 4477745078019654630}
+  finalChunk: {fileID: 7020266316206959589, guid: 1f7ed5b2120bbe64fb1ad64cea12ff40, type: 3}
+  minusAmount: 0
   chunkCounter: 0
   maxChunkAmount: 12
 --- !u!1 &4885744855748566073
@@ -233,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 138dcb142e8816d41a344009faaa0556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarSpawner
-  objectToSpawn: {fileID: 0}
+  vehiclePrefabs: []
   directionToSet: 1
   carSpeed: 100
   cooldown: 1.5
@@ -281,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 138dcb142e8816d41a344009faaa0556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarSpawner
-  objectToSpawn: {fileID: 0}
+  vehiclePrefabs: []
   directionToSet: 0
   carSpeed: 100
   cooldown: 1.5
