@@ -31,7 +31,7 @@ public class SpawnChunk : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Destroy(lastChunk);
+            Destroy(lastChunk, 4);
         }
     }
 }
