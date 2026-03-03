@@ -134,6 +134,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnChunk
   chunk: {fileID: 5699235978563251523}
   lastChunk: {fileID: 5699235978563251523}
+  finalChunk: {fileID: 0}
+  minusAmount: 0
+  chunkCounter: 0
+  maxChunkAmount: 12
 --- !u!1 &5699235978563251523
 GameObject:
   m_ObjectHideFlags: 0
